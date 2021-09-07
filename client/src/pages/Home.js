@@ -1,5 +1,5 @@
 import React from 'react';
-import picture from '../assets/images/hero.png'
+import picture from '../assets/images/main.png'
 import {NavLink} from "react-router-dom";
 
 
@@ -44,7 +44,7 @@ const Home = () => {
             </div>
           </div>
         </main>
-        <div className='hero-img lg:absolute lg:inset-y-60 lg:right-12 lg:w-7/12'>
+        <div className='hero-img lg:absolute lg:inset-y-36 lg:right-40 lg:w-5/12'>
           <img alt='avatar' src={picture} />
         </div>
       </div>
