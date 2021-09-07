@@ -11,7 +11,7 @@ const Home = () => {
           <div className='sm:text-center lg:text-left'>
             <h1 className='text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-5xl'>
               <span className='block xl:inline text-gray-600'>Need a gig?</span>{' '}
-              <span className='block cust-orange xl:inline'>
+              <span className='block cust-orange'>
                 You are in the right place!
               </span>
             </h1>
