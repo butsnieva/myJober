@@ -93,6 +93,10 @@
     bottom:0px;
 		z-index: -100;
 }
+.hero-img {
+	z-index: -99;
+}
+
 
 .lg-map-placeholder {
 	object-fit: cover;
