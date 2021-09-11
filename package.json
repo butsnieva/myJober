@@ -1,7 +1,7 @@
 {
-  "name": "jobs-posting",
+  "name": "my-jober",
   "version": "1.0.0",
-  "description": "* Chris D.\r * Nathaniel A.\r * Kateryna B.\r * Colin R.\r * Jose M.\r * Ronald M.\r * Bayleigh W.",
+  "description": "",
   "main": "server/server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -23,7 +23,7 @@
     "concurrently": "^5.3.0"
   },
   "bugs": {
-    "url": "https://github.com/chdonovan/Jobs-posting/issues"
+    "url": "https://github.com/butsnieva/myJober/issues"
   },
-  "homepage": "https://github.com/chdonovan/Jobs-posting#readme"
+  "homepage": "https://my-jober.herokuapp.com/"
 }
