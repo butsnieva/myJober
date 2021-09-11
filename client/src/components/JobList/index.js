@@ -3,6 +3,8 @@ import map from '../../assets/images/map-img-placeholder.png';
 import { BsFillEnvelopeFill } from 'react-icons/bs';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/outline';
+import noJobs from '../../assets/images/dash-no-jobs.png';
+
 
 const JobList = ({ jobs }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -17,7 +19,18 @@ const JobList = ({ jobs }) => {
   };
 
   if (!jobs.length) {
-    return <h3>No Jobs availible at this moment.</h3>;
+    return (
+      <div className='grid justify-items-center mt-36'>
+        <h3 className='text-center text-2xl text-gray-600 cust-font mb-8'>
+          No Jobs availible at this moment. <br /> Please check back later!
+        </h3>
+        <img
+          alt='woman sleeps on the couch'
+          src={noJobs}
+          className='w-2/4'
+        />
+      </div>
+    );
   }
 
   return (
