@@ -1,10 +1,12 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+require('dotenv').config();
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
+const { User } = require('./models');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,19 +19,29 @@ const server = new ApolloServer({
 server.applyMiddleware({ app });
 
 // serve up static assets (images)
-app.use('/images', express.static(path.join(__dirname, '../client/images')));
+// app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/build')));
-}
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirname, '../client/build')));
+// }
   
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
   
+app.get('/user', (req, res) => {
+  User.find({}, (err, result) => {
+    if (err) {
+      res.send(err)
+    } else {
+      res.send(result)
+    }
+  })
+})
+
 db.once('open', () => {
     app.listen(PORT, () => {
         // server

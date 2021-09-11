@@ -10,9 +10,9 @@ const Footer = () => {
 
     return (
       <div>
-        <footer className='text-center text-gray-600 my-3 mt-16 bg-gray-300 bg-opacity-40 mb-0 py-2'>
+        {/* <footer className='text-center text-gray-600 my-3 mt-16 bg-gray-300 bg-opacity-40 mb-0 py-2'>
           <span className='text-md cust-font'> © Kateryna Butsnieva</span>
-          {/* <div className='flex justify-center'>
+          <div className='flex justify-center'>
             <a
               className='hover:text-gray-400'
               href='https://github.com/butsnieva'
@@ -33,8 +33,8 @@ const Footer = () => {
             >
               <FaLinkedinIn className='w-5 h-5 mx-1' />
             </a>
-          </div> */}
-        </footer>
+          </div>
+        </footer> */}
 
         <img
           href='/'

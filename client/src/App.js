@@ -6,7 +6,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'https://my-jober-backend.herokuapp.com/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
