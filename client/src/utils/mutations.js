@@ -57,6 +57,32 @@ export const ADD_JOB = gql`
   }
 `;
 
+export const UPDATE_JOB = gql`
+  mutation updateJob(
+    $jobId: ID!
+    $title: String
+    $price: String
+    $description: String
+    $location: String
+  ) {
+    updateJob(
+      jobId: $jobId
+      title: $title
+      price: $price
+      description: $description
+      location: $location
+    ) {
+      _id
+      title
+      price
+      description
+      location
+    }
+  }
+`;
+
+
+
 export const REMOVE_JOB = gql`
   mutation removeJob(
     $id: String!

@@ -26,6 +26,11 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+#description {
+	white-space: pre-wrap;
+}
+
+
 .cust-orange {
 	color: var(--orange);
 }

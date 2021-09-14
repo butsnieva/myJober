@@ -3,7 +3,7 @@ import map from '../../assets/images/map-img-placeholder.png';
 import { BsFillEnvelopeFill } from 'react-icons/bs';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/outline';
-import noJobs from '../../assets/images/dash-no-jobs.png';
+import noJobsPic from '../../assets/images/dash-no-jobs.png';
 
 
 const JobList = ({ jobs }) => {
@@ -26,7 +26,7 @@ const JobList = ({ jobs }) => {
         </h3>
         <img
           alt='woman sleeps on the couch'
-          src={noJobs}
+          src={noJobsPic}
           className='w-2/4'
         />
       </div>

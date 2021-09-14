@@ -9,13 +9,12 @@
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "deploy": "cd server && git push heroku main && cd ../client && npm run build && cd .. && firebase deploy"
+    "deploy": "cd server && git push heroku main && cd ../client && npm run build && firebase deploy"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.3.2",
-    "firebase": "^9.0.2",
     "if-env": "^1.0.4",
     "postcss": "^8.3.6",
     "tailwind": "^4.0.0",
@@ -27,5 +26,5 @@
   "bugs": {
     "url": "https://github.com/butsnieva/myJober/issues"
   },
-  "homepage": "https://my-jober.herokuapp.com/"
+  "homepage": "https://my-jober.web.app/"
 }
