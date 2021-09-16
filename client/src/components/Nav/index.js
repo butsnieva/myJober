@@ -5,7 +5,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Auth from "../../utils/auth";
 import logo from '../../assets/images/logo.png'
 
-import { BsBriefcase } from 'react-icons/bs';
+import { BsBriefcase, BsCardChecklist } from 'react-icons/bs'
 import { IoSettingsOutline, IoHomeOutline } from 'react-icons/io5';
 import { VscSignOut } from 'react-icons/vsc';
 
@@ -134,6 +134,17 @@ const Nav = () => {
                                     <BsBriefcase className='my-2 h-7 w-8 text-gray-600 hover:text-gray-700' />
                                   </NavLink>
                                 </Menu.Item>
+                                <Menu.Item>
+                                  <NavLink
+                                    className='block px-4 py-2 text-sm text-gray-700'
+                                    exact
+                                    to='/Myjobs'
+                                    replace
+                                  >
+                                    <BsCardChecklist className='my-2 h-7 w-7 text-gray-600 hover:text-gray-700' />
+                                  </NavLink>
+                                </Menu.Item>
+
                                 {/* <Menu.Item>
                                   <li className='block px-4 py-2 text-sm text-gray-700'>
                                     <p>Calendar icon</p>
@@ -168,18 +179,6 @@ const Nav = () => {
                         </div>
                       </div>
                       <div className='relative flex mt-3 mr-14 items-center'>
-                        <div className='mt-3 mr-14 cust-font font-bold text-gray-600'>
-                          <button>
-                            <NavLink
-                              exact
-                              to='/Myjobs'
-                              className='cust-font font-bold text-gray-600 bg-gray-200 hover:bg-gray-100 px-10 py-1 rounded-xl shadow-md'
-                              replace
-                            >
-                              My Jobs
-                            </NavLink>
-                          </button>
-                        </div>
                         <div className='mr-5'>
                           <div>
                             <p className='cust-font font-bold text-gray-600'>
@@ -294,7 +293,7 @@ const Nav = () => {
           )}
         </Disclosure>
       </HashRouter>
-    );
+    )
 };
 
 export default Nav;

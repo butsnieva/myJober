@@ -11,7 +11,7 @@ const MyJobs = () => {
     const { data } = useQuery(QUERY_ME);
     const [jobs, setJobs
     ] = useState(data.me.jobs || []);
-   const [removeJob] = useMutation(REMOVE_JOB);
+    const [removeJob] = useMutation(REMOVE_JOB);
 
 
     const handleDeleteBtn = async (event, jobId) => {
@@ -20,9 +20,12 @@ const MyJobs = () => {
         const updatedJobs = await removeJob(jobId);
         console.log(updatedJobs);
         setJobs(updatedJobs);
-        
-
     }
+
+    const handleEditBtn = async (event, jobId) => {
+      event.preventDefault();
+    };
+
 
     return (
       <div>
@@ -66,7 +69,14 @@ const MyJobs = () => {
                         border-gray-200 rounded-lg'
                       >
                         <p className='py-2 px-3 text-gray-800'>
-                          {job.description}
+                          {job.description.split('\n').map((i) => {
+                            return (
+                              <p>
+                                {i}
+                                <br />
+                              </p>
+                            );
+                          })}
                         </p>
                       </div>
                     </div>
@@ -79,11 +89,20 @@ const MyJobs = () => {
                     <div className='flex items-center'>
                       <button
                         type='button'
+                        className='mr-2 bg-gray-200 hover:bg-gray-300 py-2.5 px-5 border border-none shadow-md rounded-lg text-sm leading-4 font-bold text-gray-700 focus:outline-none focus:ring-none'
+                        onClick={(event) => handleEditBtn(event, job._id)}
+                        id={job._id}
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        type='button'
                         className='btn-main-red py-2.5 px-5 border border-none shadow-md rounded-lg text-sm leading-4 font-bold text-gray-700 focus:outline-none focus:ring-none'
                         onClick={(event) => handleDeleteBtn(event, job._id)}
                         id={job._id}
                       >
-                        Delete this job
+                        Delete  job
                       </button>
                     </div>
                   </div>

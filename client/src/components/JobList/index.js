@@ -76,7 +76,14 @@ const JobList = ({ jobs }) => {
                   border-gray-200 rounded-lg'
                       >
                         <p className='py-2 px-3 text-gray-800'>
-                          {job.description}
+                          {job.description.split('\n').map((i) => {
+                            return (
+                              <p>
+                                {i}
+                                <br />
+                              </p>
+                            );
+                          })}
                         </p>
                       </div>
                     </div>
