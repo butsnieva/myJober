@@ -84,11 +84,17 @@ export const UPDATE_JOB = gql`
 
 
 export const REMOVE_JOB = gql`
-  mutation removeJob(
-    $id: String!
-    ) {
-    removeJob
+  mutation removeJob($jobId: ID!) {
+    removeJob(jobId: $jobId) {
+      _id
+      jobs {
+        _id
+        title
+        description
+        price
+      }
+    }
   }
-`;
+`
 
 

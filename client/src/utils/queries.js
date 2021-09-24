@@ -20,7 +20,7 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_JOBS = gql`
-  query {
+   {
     jobs {
       _id
       title
@@ -33,7 +33,7 @@ export const QUERY_JOBS = gql`
 `;
 
 export const QUERY_USER = gql`
-  query {
+   {
     User {
       _id
       firstName

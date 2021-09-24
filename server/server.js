@@ -32,8 +32,18 @@ app.use(express.json());
 //     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 // });
   
-app.get('/user', (req, res) => {
+app.get('/users', (req, res) => {
   User.find({}, (err, result) => {
+    if (err) {
+      res.send(err)
+    } else {
+      res.send(result)
+    }
+  })
+})
+
+app.get('/jobs', (req, res) => {
+  Job.find({}, (err, result) => {
     if (err) {
       res.send(err)
     } else {

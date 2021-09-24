@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Auth from '../../utils/auth'
 import map from '../../assets/images/map-img-placeholder.png';
 
 import { useQuery } from '@apollo/client';
@@ -11,19 +12,22 @@ const MyJobs = () => {
     const { data } = useQuery(QUERY_ME);
     const [jobs, setJobs
     ] = useState(data.me.jobs || []);
-    const [removeJob] = useMutation(REMOVE_JOB);
+    const [removeJob, { error }] = useMutation(REMOVE_JOB)
 
 
-    const handleDeleteBtn = async (event, jobId) => {
-        event.preventDefault();
-        console.log(jobId);
-        const updatedJobs = await removeJob(jobId);
-        console.log(updatedJobs);
-        setJobs(updatedJobs);
-    }
+    const handleDeleteBtn = async jobId => {
+      try {
+        await removeJob ({
+          variables: { jobId },
+        })
+      } catch (err) {
+        console.log(err)
+      }
+        window.location.reload()
+    } 
 
     const handleEditBtn = async (event, jobId) => {
-      event.preventDefault();
+
     };
 
 
@@ -99,7 +103,7 @@ const MyJobs = () => {
                       <button
                         type='button'
                         className='btn-main-red py-2.5 px-5 border border-none shadow-md rounded-lg text-sm leading-4 font-bold text-gray-700 focus:outline-none focus:ring-none'
-                        onClick={(event) => handleDeleteBtn(event, job._id)}
+                        onClick={() => handleDeleteBtn(job._id)}
                         id={job._id}
                       >
                         Delete  job

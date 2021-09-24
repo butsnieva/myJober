@@ -113,7 +113,7 @@ const Nav = () => {
                               leaveFrom='transform opacity-100 scale-100'
                               leaveTo='transform opacity-0 scale-95'
                             >
-                              <Menu.Items className='h-screen origin-top-left absolute left-0 w-16 py-1 bg-gray-300 bg-opacity-25 focus:outline-none'>
+                              <Menu.Items className='flex-col h-screen origin-top-left absolute left-0 w-16 py-1 bg-gray-300 bg-opacity-25 focus:outline-none'>
                                 <Menu.Item>
                                   <NavLink
                                     exact
@@ -136,7 +136,7 @@ const Nav = () => {
                                 </Menu.Item>
                                 <Menu.Item>
                                   <NavLink
-                                    className='block px-4 py-2 text-sm text-gray-700'
+                                    className='flex justify-center block px-4 py-2 text-sm text-gray-700'
                                     exact
                                     to='/Myjobs'
                                     replace

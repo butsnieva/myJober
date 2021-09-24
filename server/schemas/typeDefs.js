@@ -41,7 +41,7 @@ const typeDefs = gql`
       description: String
       location: String
     ): Job
-    removeJob(_id: ID!): Job
+    removeJob(jobId: ID!): User
     
     login(email: String!, password: String!): Auth
   }
