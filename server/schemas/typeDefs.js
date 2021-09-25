@@ -42,10 +42,17 @@ const typeDefs = gql`
       location: String
     ): Job
     removeJob(jobId: ID!): User
-    
+    updateJob(
+      jobId: ID!
+      title: String
+      description: String
+      price: String
+      location: String
+    ): Job
+
     login(email: String!, password: String!): Auth
   }
-`;
+`
 
 module.exports = typeDefs;
 

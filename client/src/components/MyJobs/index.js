@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import Auth from '../../utils/auth'
+// import Auth from '../../utils/auth'
 import map from '../../assets/images/map-img-placeholder.png';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 import {useMutation} from '@apollo/client';
 import { REMOVE_JOB } from '../../utils/mutations';
+import EditJobModal from '../EditJobModal'
 
 
 const MyJobs = () => {
     const { data } = useQuery(QUERY_ME);
-    const [jobs, setJobs
-    ] = useState(data.me.jobs || []);
-    const [removeJob, { error }] = useMutation(REMOVE_JOB)
+    const [jobs, setJobs] = useState(data.me.jobs || []);
+    const [removeJob] = useMutation(REMOVE_JOB)
 
 
     const handleDeleteBtn = async jobId => {
@@ -79,7 +79,7 @@ const MyJobs = () => {
                                 {i}
                                 <br />
                               </p>
-                            );
+                            )
                           })}
                         </p>
                       </div>
@@ -91,14 +91,15 @@ const MyJobs = () => {
                       <p className='flex items-end'>Date posted: 8-23-2021</p>
                     </div>
                     <div className='flex items-center'>
-                      <button
-                        type='button'
-                        className='mr-2 bg-gray-200 hover:bg-gray-300 py-2.5 px-5 border border-none shadow-md rounded-lg text-sm leading-4 font-bold text-gray-700 focus:outline-none focus:ring-none'
-                        onClick={(event) => handleEditBtn(event, job._id)}
-                        id={job._id}
-                      >
-                        Edit
-                      </button>
+                      
+                      {/* EDIT BUTTON */}
+                      <EditJobModal
+                        jobId={job._id}
+                        title={job.title}
+                        description={job.description}
+                        price={job.price}
+                        location={job.location}
+                      />
 
                       <button
                         type='button'
@@ -106,7 +107,7 @@ const MyJobs = () => {
                         onClick={() => handleDeleteBtn(job._id)}
                         id={job._id}
                       >
-                        Delete  job
+                        Delete job
                       </button>
                     </div>
                   </div>
@@ -119,7 +120,7 @@ const MyJobs = () => {
             </div>
           ))}
       </div>
-    );
+    )
 }
 
 export default MyJobs;

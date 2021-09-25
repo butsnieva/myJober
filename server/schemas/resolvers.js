@@ -90,30 +90,30 @@ const resolvers = {
         return job
       }
 
-        throw new AuthenticationError('You need to be logged in!');
-      },
-      // updateUser: async (parent, args, context) => {
-      //   if (context.user) {
-      //     return await user.findByIdAndUpdate(context.user._id, args, { new: true });
-      //   }
-      //   throw new AuthenticationError('You are not logged in!');
-      // },
-      // updatedJob: async (parent, args, context) => {
-      //   if (context.job) {
-      //     return await job.findByIdAndUpdate(context.job._id, args, { new: true });
-      //   }
-      //   throw new AuthenticationError('You must be logged in!');
-      // },
-      // removeJob: async (parent, args, context) => {
-      //   if (context.user) {
-      //     const job = await Job.remove({ ...args, username: context.user.username });
+      throw new AuthenticationError('You need to be logged in!')
+    },
+    // updateUser: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return await user.findByIdAndUpdate(context.user._id, args, { new: true });
+    //   }
+    //   throw new AuthenticationError('You are not logged in!');
+    // },
+    // updatedJob: async (parent, args, context) => {
+    //   if (context.job) {
+    //     return await job.findByIdAndUpdate(context.job._id, args, { new: true });
+    //   }
+    //   throw new AuthenticationError('You must be logged in!');
+    // },
+    // removeJob: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const job = await Job.remove({ ...args, username: context.user.username });
 
-      //     await User.findByIdAndUpdate(
-      //       { _id: context.user._id },
-      //       { $pull: { jobs: job._id } },
-      //       { new: true }
-      //     );
-      //   }
+    //     await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { jobs: job._id } },
+    //       { new: true }
+    //     );
+    //   }
     // },
 
     removeJob: async (parent, { jobId }, context) => {
@@ -136,6 +136,29 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in!')
     },
+
+
+    updateJob: async (
+      parent,
+      { jobId, title, description, price, location },
+      context
+    ) => {
+      if (context.user) {
+        const updatedJob = await Job.findByIdAndUpdate(
+          { _id: jobId },
+          {
+            title: title,
+            description: description,
+            price: price,
+            location: location,
+          },
+          { new: true }
+        )
+        return updatedJob
+      }
+      throw new AuthenticationError('You need to be logged in!')
+    },
+
 
     login: async (parent, { email, password }) => {
       console.log('this is a test')
