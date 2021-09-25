@@ -35,7 +35,7 @@ const MyJobs = () => {
       <div>
         {jobs &&
           jobs.map((job) => (
-            <div key={job._id} className='mt-5 w-full md:w-9/12 m-auto'>
+            <div key={job._id} className='mt-5 w-full md:w-10/12 m-auto'>
               <div className='flex border border-gray-200 shadow-lg sm:rounded-lg sm:overflow-hidden'>
                 <div className='flex-1 px-4 py-5 bg-white space-y-6 sm:p-6'>
                   <div>

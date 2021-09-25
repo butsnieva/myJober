@@ -4,7 +4,7 @@ import React from 'react';
 const Settings = () => {
   return (
     <div className='flex justify-center'>
-      <div className='w-4/5 mt-10'>
+      <div className='w-10/12 mt-10'>
         <div>
           <div>
             <div>
@@ -173,7 +173,7 @@ const Settings = () => {
                           <div className='flex text-sm text-gray-600'>
                             <label
                               htmlFor='file-upload'
-                              className='relative cursor-pointer bg-white rounded-md font-medium cust-orange hover:text-red-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500'
+                              className='cursor-pointer bg-white rounded-md font-medium cust-orange hover:text-red-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500'
                             >
                               <span>Upload a file</span>
                               <input
