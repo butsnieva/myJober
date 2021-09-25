@@ -11,8 +11,8 @@
     "seed": "cd server && npm run seed",
     "deploy": "cd server && git push heroku main && cd ../client && npm run build && firebase deploy"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Kateryna Butsnieva",
+  "license": "AGPL-3.0",
   "dependencies": {
     "autoprefixer": "^10.3.2",
     "if-env": "^1.0.4",
