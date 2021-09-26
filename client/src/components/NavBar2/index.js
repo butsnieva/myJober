@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../assets/images/logo.png'
 
-import { Route, HashRouter, Switch } from 'react-router-dom'
+import { Route, HashRouter, Switch, NavLink } from 'react-router-dom'
 import Auth from '../../utils/auth'
 
 import { BsBriefcase, BsCardChecklist } from 'react-icons/bs'
@@ -33,10 +33,10 @@ const Nav = () => {
   }
 
   const navbarLoggedIn = [
-    { name: 'Main Menu', href: '#', current: true, icon: <IoHomeOutline/> },
-    { name: 'Dashboard', href: '#/Dashboard', current: false, icon: <BsBriefcase/> },
-    { name: 'My Listings', href: '#/Myjobs', current: false, icon: <BsCardChecklist/> },
-    { name: 'Settings', href: '#/Settings', current: false, icon: <IoSettingsOutline/> },
+    { name: 'Main Menu', href: '/', icon: <IoHomeOutline/> },
+    { name: 'Dashboard', href: '/Dashboard', icon: <BsBriefcase/> },
+    { name: 'My Listings', href: '/Myjobs', icon: <BsCardChecklist/> },
+    { name: 'Settings', href: '/Settings', icon: <IoSettingsOutline/> },
   ]
   const navbarNotLoggedIn = [
     { name: 'About', href: '#' },
@@ -45,9 +45,6 @@ const Nav = () => {
     { name: 'Login', href: '#/Login' },
   ]
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
 
   return (
     <HashRouter>
@@ -91,21 +88,18 @@ const Nav = () => {
           <div className='mt-14 w-48 h-screen fixed bg-gray-50 bg-opacity-75 shadow-lg flex-col justify-between hidden sm:flex'>
             <div className='px-8'>
               <div className='mt-12'>
-                {navbarLoggedIn.map((page) => (
-                  <div
-                    className={classNames(
-                      page.current ? 'border-b' : 'border-b border-transparent',
-                      'text-md'
-                    )}
-                    aria-current={page.current ? 'page' : undefined}
+                {navbarLoggedIn.map((page, i) => (
+                  <NavLink
+                    key={i}
+                    exact
+                    to={page.href}
+                    replace
+                    activeClassName='border-b font-bold'
+                    className='flex w-full text-gray-600 hover:text-gray-500 cursor-pointer items-center mt-5'
                   >
-                    <div className='flex w-full text-gray-600 hover:text-gray-500 cursor-pointer items-center mt-5'>
-                      <div className='mr-3 text-xl'>{page.icon}</div>
-                      <a key={page.name} href={page.href}>
-                        {page.name}
-                      </a>
-                    </div>
-                  </div>
+                    <div className='mr-3 text-xl'>{page.icon}</div>
+                    {page.name}
+                  </NavLink>
                 ))}
                 <a
                   className='flex w-full text-gray-600 hover:text-gray-500 cursor-pointer items-center mt-5'
@@ -158,11 +152,12 @@ const Nav = () => {
               <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-end'>
                 <div className='hidden sm:block sm:ml-6'>
                   <div className='flex space-x-4'>
-                    {navbarNotLoggedIn.map((page) => (
-                      <div className='text-gray-600 hover:bg-gray-100 px-2 py-1 rounded-md text-sm font-medium'>
-                        <a key={page.name} href={page.href}>
-                          {page.name}
-                        </a>
+                    {navbarNotLoggedIn.map((page, i) => (
+                      <div
+                        key={i}
+                        className='text-gray-600 hover:bg-gray-100 px-2 py-1 rounded-md text-sm font-medium'
+                      >
+                        <a href={page.href}>{page.name}</a>
                       </div>
                     ))}
                   </div>
