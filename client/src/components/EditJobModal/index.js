@@ -45,8 +45,6 @@ const EditJobModal = ({
         variables: { ...formState },
       })
 
-      const jobId = data?.updateJob._id
-
       console.log('form from addJob:', data)
 
       window.location.reload()
