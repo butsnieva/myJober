@@ -32,6 +32,23 @@ const Nav = () => {
     Auth.logout()
   }
 
+  const navbarLoggedIn = [
+    { name: 'Main Menu', href: '#', current: true, icon: <IoHomeOutline/> },
+    { name: 'Dashboard', href: '#/Dashboard', current: false, icon: <BsBriefcase/> },
+    { name: 'My Listings', href: '#/Myjobs', current: false, icon: <BsCardChecklist/> },
+    { name: 'Settings', href: '#/Settings', current: false, icon: <IoSettingsOutline/> },
+  ]
+  const navbarNotLoggedIn = [
+    { name: 'About', href: '#' },
+    { name: 'Contact Us', href: '#' },
+    { name: 'FAQ', href: '#' },
+    { name: 'Login', href: '#/Login' },
+  ]
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
+
   return (
     <HashRouter>
       {loggedIn && data ? (
@@ -72,56 +89,42 @@ const Nav = () => {
           {/* Sidebar starts */}
           <div className='mt-14 w-48 h-screen fixed bg-gray-50 bg-opacity-75 shadow-lg flex-col justify-between hidden sm:flex'>
             <div className='px-8'>
-              <ul className='mt-12'>
-                <li className='flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6'>
-                  <NavLink exact to='/' className='flex items-center' replace>
-                    <IoHomeOutline className='h-5 w-5 text-gray-600' />
-                    <span className='text-md ml-3'>Main menu</span>
-                  </NavLink>
-                </li>
-                <li className='flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6'>
-                  <NavLink
-                    exact
-                    to='/Dashboard'
-                    className='flex items-center'
-                    replace
+              <div className='mt-12'>
+                {navbarLoggedIn.map((page) => (
+                  <div
+                    className={classNames(
+                      page.current ? 'border-b' : 'border-b border-transparent',
+                      'text-md'
+                    )}
+                    aria-current={page.current ? 'page' : undefined}
                   >
-                    <BsBriefcase className='h-5 w-5 text-gray-600' />
-                    <span className='text-md ml-3'>Dashboard</span>
-                  </NavLink>
-                </li>
-                <li className='flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6'>
-                  <NavLink
-                    className='flex items-center'
-                    exact
-                    to='/Myjobs'
-                    replace
-                  >
-                    <BsCardChecklist className='h-5 w-5 text-gray-600' />
-                    <span className='text-md ml-3'>My Listings</span>
-                  </NavLink>
-                </li>
-                <li className='flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6'>
-                  <NavLink
-                    exact
-                    to='/Settings'
-                    className='flex items-center'
-                    replace
-                  >
-                    <IoSettingsOutline className='h-5 w-5 text-gray-600' />
-                    <span className='text-md ml-3'>Settings</span>
-                  </NavLink>
-                </li>
-                <li
-                  className='flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center'
+                    <div className='flex w-full text-gray-600 hover:text-gray-500 cursor-pointer items-center mt-5'>
+                      <div className='mr-3 text-xl'>{page.icon}</div>
+                      <a key={page.name} href={page.href}>
+                        {page.name}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+                <a
+                  className='flex w-full text-gray-600 hover:text-gray-500 cursor-pointer items-center mt-5'
                   onClick={logout}
                 >
                   <div className='flex items-center'>
                     <VscSignOut className='h-5 w-5 text-gray-600' />
-                    <span className='text-md ml-3'>Loguot</span>
+                    <span className='text-md ml-3'>Logout</span>
                   </div>
-                </li>
-              </ul>
+                </a>
+              </div>
+            </div>
+            <div className='text-center text-gray-600 mb-16 border-t'>
+              <a
+                className='text-xs cust-font hover:text-gray-500'
+                href='https://www.linkedin.com/in/butsnieva/'
+                target='_blank'
+              >
+                © Kateryna Butsnieva
+              </a>
             </div>
           </div>
           {/* Sidebar ends */}
@@ -151,40 +154,13 @@ const Nav = () => {
               <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-end'>
                 <div className='hidden sm:block sm:ml-6'>
                   <div className='flex space-x-4'>
-                    <div>
-                      <NavLink
-                        exact
-                        to='/'
-                        className='nav-link text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium'
-                        replace
-                      >
-                        About
-                      </NavLink>
-                      <NavLink
-                        exact
-                        to='/'
-                        className='nav-link text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium'
-                        replace
-                      >
-                        Contact Us
-                      </NavLink>
-                      <NavLink
-                        exact
-                        to='/'
-                        className='nav-link text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium'
-                        replace
-                      >
-                        FAQ
-                      </NavLink>
-                      <NavLink
-                        exact
-                        to='/Login'
-                        className='nav-link text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium'
-                        replace
-                      >
-                        Login
-                      </NavLink>
-                    </div>
+                    {navbarNotLoggedIn.map((page) => (
+                      <div className='text-gray-600 hover:bg-gray-100 px-2 py-1 rounded-md text-sm font-medium'>
+                        <a key={page.name} href={page.href}>
+                          {page.name}
+                        </a>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

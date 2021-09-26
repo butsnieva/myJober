@@ -62,7 +62,7 @@ const JobPosting = () => {
   return (
     <div>
       <form onSubmit={handleFormSubmit} action='#' method='POST'>
-        <div className='mt-5 w-full md:w-9/12 m-auto'>
+        <div className='mt-5 w-full md:w-10/12 m-auto'>
           <div className='job-details'>
             <div className='flex'>
               <div className='w-2/12'>
