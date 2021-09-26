@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../assets/images/logo.png'
 
-import { Route, NavLink, HashRouter, Switch } from 'react-router-dom'
+import { Route, HashRouter, Switch } from 'react-router-dom'
 import Auth from '../../utils/auth'
 
 import { BsBriefcase, BsCardChecklist } from 'react-icons/bs'
@@ -53,7 +53,7 @@ const Nav = () => {
     <HashRouter>
       {loggedIn && data ? (
         <>
-          {/* Logo & User info */}
+          {/* Logo & User info section starts*/}
           <div className='fixed w-full z-2 bg-gray-50 bg-opacity-75 shadow-sm pb-1'>
             <div className='flex justify-between'>
               <div className='ml-5 mt-1'>
@@ -85,6 +85,7 @@ const Nav = () => {
               </div>
             </div>
           </div>
+          {/* Logo & User info section ends*/}
 
           {/* Sidebar starts */}
           <div className='mt-14 w-48 h-screen fixed bg-gray-50 bg-opacity-75 shadow-lg flex-col justify-between hidden sm:flex'>
@@ -109,6 +110,7 @@ const Nav = () => {
                 <a
                   className='flex w-full text-gray-600 hover:text-gray-500 cursor-pointer items-center mt-5'
                   onClick={logout}
+                  href='/'
                 >
                   <div className='flex items-center'>
                     <VscSignOut className='h-5 w-5 text-gray-600' />
@@ -122,6 +124,7 @@ const Nav = () => {
                 className='text-xs cust-font hover:text-gray-500'
                 href='https://www.linkedin.com/in/butsnieva/'
                 target='_blank'
+                rel='noreferrer'
               >
                 © Kateryna Butsnieva
               </a>
@@ -145,6 +148,7 @@ const Nav = () => {
         </>
       ) : (
         <div>
+          {/* Welcome page navbar, user is not logged in */}
           <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
             <div className='relative flex items-center justify-between h-16'>
               <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'></div>

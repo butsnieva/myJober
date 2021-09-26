@@ -11,7 +11,7 @@ import EditJobModal from '../EditJobModal'
 
 const MyJobs = () => {
     const { data } = useQuery(QUERY_ME);
-    const [jobs, setJobs] = useState(data.me.jobs || []);
+    const [jobs] = useState(data.me.jobs || []);
     const [removeJob] = useMutation(REMOVE_JOB)
 
 
@@ -25,10 +25,6 @@ const MyJobs = () => {
       }
         window.location.reload()
     } 
-
-    const handleEditBtn = async (event, jobId) => {
-
-    };
 
 
     return (
