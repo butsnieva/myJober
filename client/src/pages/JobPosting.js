@@ -65,8 +65,8 @@ const JobPosting = () => {
         <div className='mt-5 w-full md:w-10/12 m-auto'>
           <div className='job-details'>
             <div className='flex'>
-              <div className='w-2/12'>
-                <p className='text-center font-bold text-lg text-gray-700 mx-5 py-0.5 rounded-xl shadow-md bg-cust-yellow'>
+              <div className='mr-12'>
+                <p className='text-center font-bold text-lg text-gray-700 px-2 rounded-full py-1.5 shadow-md bg-cust-yellow'>
                   01.
                 </p>
                 <div className='py-4 flex divide-x-4 divide-gray-200 h-full'>
@@ -149,8 +149,8 @@ const JobPosting = () => {
 
           <div className='location mt-10'>
             <div className='flex'>
-              <div className='w-2/12'>
-                <p className='text-center font-bold text-lg text-gray-700 mx-5 py-0.5 rounded-xl shadow-md bg-gray-300'>
+              <div className='mr-12'>
+                <p className='text-center font-bold text-lg text-gray-700 px-1.5 rounded-full py-1.5 shadow-md bg-gray-300'>
                   02.
                 </p>
                 <div className='py-4 flex divide-x-4 divide-gray-200 h-full'>
@@ -189,10 +189,10 @@ const JobPosting = () => {
             )}
           </div>
 
-          <div className='submit mt-5'>
+          <div className='submit mt-8'>
             <div className='flex items-center'>
-              <div className='w-2/12'>
-                <p className='text-center font-bold text-lg text-gray-700 mx-5 py-0.5 rounded-xl shadow-md bg-gray-300'>
+              <div className='mr-12'>
+                <p className='text-center font-bold text-lg text-gray-700 px-1.5 rounded-full py-1.5 shadow-md bg-gray-300'>
                   03.
                 </p>
               </div>
@@ -296,7 +296,7 @@ const JobPosting = () => {
         </Dialog>
       </Transition.Root>
     </div>
-  );
+  )
 }
 
 export default JobPosting
