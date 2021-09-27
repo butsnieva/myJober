@@ -53,9 +53,11 @@ const Nav = () => {
           {/* Logo & User info section starts*/}
           <div className='fixed w-full z-2 bg-gray-50 bg-opacity-75 shadow-sm pb-1'>
             <div className='flex justify-between'>
-              <div className='ml-5 mt-1'>
-                <img className=' h-12' src={logo} alt='Logo' />
-              </div>
+              <NavLink exact to='/' replace>
+                <div className='ml-5 mt-1'>
+                  <img className=' h-12' src={logo} alt='Logo' />
+                </div>
+              </NavLink>
               <div className='relative flex mt-1 mr-14 items-center'>
                 <div className='mr-3'>
                   <div>
@@ -68,17 +70,19 @@ const Nav = () => {
                     </p>
                   </div>
                 </div>
-                <div className='border rounded-full border-gray-300'>
-                  <span className='flex inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100'>
-                    <svg
-                      className='h-full w-full text-gray-300'
-                      fill='currentColor'
-                      viewBox='0 0 24 24'
-                    >
-                      <path d='M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z' />
-                    </svg>
-                  </span>
-                </div>
+                <NavLink exact to='/Settings' replace>
+                  <div className='border rounded-full border-gray-300'>
+                    <span className='flex inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100'>
+                      <svg
+                        className='h-full w-full text-gray-300'
+                        fill='currentColor'
+                        viewBox='0 0 24 24'
+                      >
+                        <path d='M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z' />
+                      </svg>
+                    </span>
+                  </div>
+                </NavLink>
               </div>
             </div>
           </div>
