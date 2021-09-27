@@ -163,16 +163,79 @@ const JobPosting = () => {
                 <p className='text-gray-500 mt-1'>
                   Enter the Address of the Job
                 </p>
-                <div className=''>
-                  <div className='mt-1'>
-                    <textarea
-                      id='location'
-                      name='location'
-                      rows={3}
-                      className='shadow-sm focus:ring-gray-400 focus:border-gray-400 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md'
-                      placeholder=''
-                      value={formState.location}
+
+                <div className='grid grid-cols-6 gap-3 flex-auto mt-6'>
+                  <div className='col-span-6'>
+                    <label
+                      htmlFor='street-address'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      Street address
+                    </label>
+                    <input
+                      type='text'
+                      name='street-address'
+                      id='street-address'
+                      autoComplete='street-address'
+                      value={formState.street}
                       onChange={handleChange}
+                      className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+                    />
+                  </div>
+
+                  <div className='col-span-6 sm:col-span-6 lg:col-span-2'>
+                    <label
+                      htmlFor='city'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      City
+                    </label>
+                    <input
+                      type='text'
+                      name='city'
+                      id='city'
+                      value={formState.city}
+                      onChange={handleChange}
+                      className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+                    />
+                  </div>
+
+                  <div className='col-span-6 sm:col-span-3 lg:col-span-2'>
+                    <label
+                      htmlFor='state'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      State / Province
+                    </label>
+                    <select
+                      type='text'
+                      name='state'
+                      id='state'
+                      value={formState.state}
+                      onChange={handleChange}
+                      className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
+                    >
+                      <option>TX</option>
+                      <option>AZ</option>
+                      <option>IL</option>
+                    </select>
+                  </div>
+
+                  <div className='col-span-6 sm:col-span-3 lg:col-span-2'>
+                    <label
+                      htmlFor='postal-code'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      ZIP / Postal
+                    </label>
+                    <input
+                      type='text'
+                      name='postal-code'
+                      id='postal-code'
+                      autoComplete='postal-code'
+                      value={formState.zip}
+                      onChange={handleChange}
+                      className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                     />
                   </div>
                 </div>
