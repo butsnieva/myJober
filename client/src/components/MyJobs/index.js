@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'
 // import Auth from '../../utils/auth'
 import map from '../../assets/images/map-img-placeholder.png';
 
@@ -25,6 +26,28 @@ const MyJobs = () => {
       }
         window.location.reload()
     } 
+
+
+  if (!jobs.length) {
+    return (
+      <div className='grid justify-items-center mt-36'>
+        <h3 className='text-center text-2xl text-gray-600 cust-font mb-8'>
+          You don't have any job postings at this moment. <br /> Go ahead and
+          create one!
+        </h3>
+        <div className='w-60 mt-3 sm:mt-0'>
+          <NavLink
+            exact
+            to='/JobPosting'
+            className='btn-main-yellow font-bold flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-lg text-gray-600 md:py-4 md:text-lg md:px-10 nav-link'
+            replace
+          >
+            Create Job Post
+          </NavLink>
+        </div>
+      </div>
+    )
+  }
 
 
     return (
