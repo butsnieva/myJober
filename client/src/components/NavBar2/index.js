@@ -61,7 +61,7 @@ const Nav = () => {
               <div className='relative flex mt-1 mr-14 items-center'>
                 <div className='mr-3'>
                   <div>
-                    <p className='cust-font font-bold text-gray-600'>
+                    <p className='cust-font font-bold text-gray-600 capitalize'>
                       {data.me.firstName} {}
                       {data.me.lastName}
                     </p>

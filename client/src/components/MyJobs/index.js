@@ -63,12 +63,13 @@ const MyJobs = () => {
                       <p className='cust-font'>${job.price}</p>
                     </div>
                     <div className='mt-1 flex'>
+                      <div className='h-24'></div>
                       <div
                         className='
                         flex-initial mt-1 block w-full sm:text-sm border
                         border-gray-200 rounded-lg'
                       >
-                        <p className='py-2 px-3 text-gray-800 h-24 min-h-full'>
+                        <p className='py-2 px-3 text-gray-800 h-auto'>
                           {job.description.split('\n').map((i) => {
                             return (
                               <p>

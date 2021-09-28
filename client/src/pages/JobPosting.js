@@ -66,8 +66,8 @@ const JobPosting = () => {
           <div className='job-details'>
             <div className='flex'>
               <div className='mr-12'>
-                <p className='text-center font-bold text-lg text-gray-700 px-2 rounded-full py-1.5 shadow-md bg-cust-yellow'>
-                  01.
+                <p className='text-center font-bold text-lg text-gray-700 rounded-full bg-cust-yellow shadow-md px-4 py-1.5'>
+                  1
                 </p>
                 <div className='py-4 flex divide-x-4 divide-gray-200 h-full'>
                   <div className='flex-1'></div>
@@ -150,8 +150,8 @@ const JobPosting = () => {
           <div className='location mt-10'>
             <div className='flex'>
               <div className='mr-12'>
-                <p className='text-center font-bold text-lg text-gray-700 px-1.5 rounded-full py-1.5 shadow-md bg-gray-300'>
-                  02.
+                <p className='text-center font-bold text-lg text-gray-700 px-3.5 rounded-full py-1.5 shadow-md bg-gray-300'>
+                  2
                 </p>
                 <div className='py-4 flex divide-x-4 divide-gray-200 h-full'>
                   <div className='flex-1'></div>
@@ -177,7 +177,7 @@ const JobPosting = () => {
                       name='street-address'
                       id='street-address'
                       autoComplete='street-address'
-                      value={formState.street}
+                      value={formState.location}
                       onChange={handleChange}
                       className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                     />
@@ -194,7 +194,6 @@ const JobPosting = () => {
                       type='text'
                       name='city'
                       id='city'
-                      value={formState.city}
                       onChange={handleChange}
                       className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                     />
@@ -211,10 +210,10 @@ const JobPosting = () => {
                       type='text'
                       name='state'
                       id='state'
-                      value={formState.state}
                       onChange={handleChange}
                       className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                     >
+                      <option></option>
                       <option>TX</option>
                       <option>AZ</option>
                       <option>IL</option>
@@ -233,7 +232,6 @@ const JobPosting = () => {
                       name='postal-code'
                       id='postal-code'
                       autoComplete='postal-code'
-                      value={formState.zip}
                       onChange={handleChange}
                       className='mt-1 focus:ring-gray-400 focus:border-gray-400 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'
                     />
@@ -255,8 +253,8 @@ const JobPosting = () => {
           <div className='submit mt-8'>
             <div className='flex items-center'>
               <div className='mr-12'>
-                <p className='text-center font-bold text-lg text-gray-700 px-1.5 rounded-full py-1.5 shadow-md bg-gray-300'>
-                  03.
+                <p className='text-center font-bold text-lg text-gray-700 px-3.5 rounded-full py-1.5 shadow-md bg-gray-300'>
+                  3
                 </p>
               </div>
 
