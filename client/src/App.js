@@ -2,7 +2,7 @@ import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Nav from './components/Nav';
+import Nav from './components/NavBar2';
 import Footer from './components/Footer';
 
 const httpLink = createHttpLink({

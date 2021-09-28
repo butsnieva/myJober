@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'
 // import Auth from '../../utils/auth'
 import map from '../../assets/images/map-img-placeholder.png';
 
@@ -27,12 +28,34 @@ const MyJobs = () => {
     } 
 
 
+  if (!jobs.length) {
+    return (
+      <div className='grid justify-items-center mt-36'>
+        <h3 className='text-center text-2xl text-gray-600 cust-font mb-8'>
+          You don't have any job postings at this moment. <br /> Go ahead and
+          create one!
+        </h3>
+        <div className='w-60 mt-3 sm:mt-0'>
+          <NavLink
+            exact
+            to='/JobPosting'
+            className='btn-main-yellow font-bold flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-lg text-gray-600 md:py-4 md:text-lg md:px-10 nav-link'
+            replace
+          >
+            Create Job Post
+          </NavLink>
+        </div>
+      </div>
+    )
+  }
+
+
     return (
       <div>
         {jobs &&
           jobs.map((job) => (
-            <div key={job._id} className='mt-5 w-full md:w-10/12 m-auto'>
-              <div className='flex border border-gray-200 shadow-lg sm:rounded-lg sm:overflow-hidden'>
+            <div key={job._id} className='flex mx-16 mt-5'>
+              <div className='md:w-9/12 flex bg-white border border-gray-200 shadow-lg sm:rounded-lg sm:overflow-hidden'>
                 <div className='flex-1 px-4 py-5 bg-white space-y-6 sm:p-6'>
                   <div>
                     <div className='flex justify-between block text-xl font-medium text-gray-700'>
@@ -40,35 +63,13 @@ const MyJobs = () => {
                       <p className='cust-font'>${job.price}</p>
                     </div>
                     <div className='mt-1 flex'>
-                      <div>
-                        <div className='flex mt-2 w-40'>
-                          <span className='inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-100'>
-                            <svg
-                              className='h-full w-full text-gray-300'
-                              fill='currentColor'
-                              viewBox='0 0 24 24'
-                            >
-                              <path d='M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z' />
-                            </svg>
-                          </span>
-                          <p className='flex items-center cust-font ml-3'>
-                            {job.firstName}
-                            {job.lastName}
-                          </p>
-                        </div>
-                        <p className='mt-2 text-sm text-gray-500'>
-                          ✔ Verified user
-                        </p>
-                        <p className='mt-1 text-sm text-gray-500'>
-                          (512)-555-2233
-                        </p>
-                      </div>
+                      <div className='h-24'></div>
                       <div
                         className='
                         flex-initial mt-1 block w-full sm:text-sm border
                         border-gray-200 rounded-lg'
                       >
-                        <p className='py-2 px-3 text-gray-800'>
+                        <p className='py-2 px-3 text-gray-800 h-auto'>
                           {job.description.split('\n').map((i) => {
                             return (
                               <p>
@@ -87,7 +88,6 @@ const MyJobs = () => {
                       <p className='flex items-end'>Date posted: 8-23-2021</p>
                     </div>
                     <div className='flex items-center'>
-                      
                       {/* EDIT BUTTON */}
                       <EditJobModal
                         jobId={job._id}
@@ -111,6 +111,19 @@ const MyJobs = () => {
 
                 <div className='m-auto mr-5 map'>
                   <img alt='map' src={map} className='rounded-lg h-auto w-44' />
+                </div>
+              </div>
+              <div className='md:w-3/12 mx-3'>
+                <div className='h-full flex bg-white border border-gray-200 shadow-lg sm:rounded-lg sm:overflow-hidden'>
+                  <div className='bg-white space-y-2 sm:p-6 text-gray-700'>
+                    <p className='cust-font border-b'>POST INSIGHTS</p>
+                    <p>Status: <span className='text-green-700'>Active</span></p>
+                    <p>Requests count: <span className='font-bold cust-font'>3</span></p>
+                    <p>Messages count: <span className='font-bold cust-font'>2</span></p>
+                    <p>Expires in: 21 day</p>
+                    <p className='text-xs text-gray-500 pt-2'>Post ID: {job._id}</p>
+                    <p></p>
+                  </div>
                 </div>
               </div>
             </div>
